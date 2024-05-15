@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gradient-background {
+            background-position: center;
+            height: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            
+        }
+
+        .bgVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: 100%; 
+            z-index: -1;
+            object-fit: cover
+        }
+
+        /* Splash Screen CSS */
+
+        .splash-screen {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(to right bottom , rgb(255, 255, 255) , rgb(45, 45, 45));
+        transition: 2s;
+        }
+
+        .logo-header {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        text-align: center;
+        font-size: 3em;
+        }
+
+        .logo {
+        position: relative;
+        display: inline-block;
+        bottom: -20px;
+        opacity: 0;
+        }
+
+        .logo.active {
+        bottom: 0;
+        opacity: 1;
+        transition: ease-in-out 1s;
+        }
+
+        .logo.fade {
+        transition: ease-in-out 1s;
+        }
+
+        body {
+    background-color: #0378ff; /* Cartoonish yellow background */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #ffffffb7; /* Sky blue container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login-form h2 {
+    color: #0378ff ; /* Cartoonish pink heading */
+}
+
+.login-form img {
+    max-width: 150px;
+    height: 150px;
+    margin: 20px 100px;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #000; /* Black text for labels */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.button {
+    display: inline-block;
+    margin:10px;
+    background-color: #0378ff; /* Yellow button */
+    color: #ffffff; /* Black text for button */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #00fff7; /* Orange button on hover */
+}
+
+a {
+    color: #FF1493; /* Pink link color */
+    text-decoration: none;
+    margin-top: 10px;
+    display: block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.ls{
+    display: inline-block;
+}
+
+    </style>
+</head>
+<body>
+    <div class="splash-screen">
+        <h1 class="logo-header">
+          <span class="logo">Hello👋</span><br />
+          <span class="logo"> Welcome To Wellness Navigator</span>
+        </h1>
+      </div>
+    <div class="gradient-background">
+        <video autoplay muted loop class="bgVideo">
+            <source src="nature.mp4" type="video/mp4">
+            <!-- <source src="https://vod-progressive.akamaized.net/exp=1695006111~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F2209%2F23%2F586046400%2F2765941936.mp4~hmac=256e0dbaca3a1d4d016164f01729f756a879392214bc869270e2c2bc24ed1dd8/vimeo-prod-skyfire-std-us/01/2209/23/586046400/2765941936.mp4" type="video/mp4"> -->
+        </video>
+        <div class="login-container">
+            <div class="login-form">
+                <h2>Wellness Navigator</h2>
+                <img src="profile.png" alt="Cartoon Character">
+                <form>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <div class="ls">
+                        <!-- <button type="submit">Login</button> -->
+                        <a href="index.html" class="button">Login</a>
+                        <!-- <button type="submit">sign up</button> -->
+                        <a href="home.html" class="button">Submit</a>
+                    </div>
+                </form>
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // function openloginPage() {
+        //     window.location.href = 'index.html';
+        // }
+        // document.getElementById('openPageButton').addEventListener('click', openloginPage);
+
+        // function opensignupPage() {
+        //     window.location.href = 'signup.html';
+        // }
+        // document.getElementById('openPageButton2').addEventListener('click', opensignupPage);
+
+            // function openloginPage() {
+            //     window.location.href = 'index.html';
+            // }
+
+            // function opensignupPage() {
+            //     window.location.href = 'signup.html';
+            // }
+
+            // document.querySelectorAll('.button')[0].addEventListener('click', openloginPage);
+            // document.querySelectorAll('.button')[1].addEventListener('click', opensignupPage);
+
+
+
+        // Splash Screen
+
+        let intro = document.querySelector(".splash-screen");
+        let logo = document.querySelector(".logo-header");
+        let logoSpan = document.querySelectorAll(".logo");
+
+        window.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+            logoSpan.forEach((span, idx) => {
+            setTimeout(() => {
+                span.classList.add("active");
+            }, (idx + 1) * 400);
+            });
+
+            setTimeout(() => {
+            logoSpan.forEach(() => {
+                span.classList.remove("active");
+                span.classList.add("fade");
+            }, (idx + 1) * 50);
+            }, 2000);
+
+            setTimeout(() => {
+            intro.style.top = "-100vh";
+            }, 2300);
+        });
+        });
+    </script>
+</body>
+</html>
